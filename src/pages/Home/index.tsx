@@ -1,4 +1,7 @@
+import useRoute from "~/hooks/useRoute";
+
 export default function Home() {
+  const routeTo = useRoute();
   return (
     <div>
       <header>
@@ -8,6 +11,12 @@ export default function Home() {
           안내합니다. 이 여정을 함께 기록해보세요.
         </p>
       </header>
+      <nav>
+        <ul>
+          <li onClick={() => routeTo("/")}>home</li>
+          <li onClick={() => routeTo("/diary")}>diary</li>
+        </ul>
+      </nav>
       <main>
         <section id="diary-list">
           <h2>식물 목록</h2>

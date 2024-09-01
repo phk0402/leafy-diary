@@ -1,12 +1,7 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import Home from "~/pages/Home";
+import { ROUTE_LIST } from "~/constants/route";
 
-const routers = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home />,
-  },
-]);
+const routers = createBrowserRouter(ROUTE_LIST);
 
 export default function Router() {
   return <RouterProvider router={routers} />;
