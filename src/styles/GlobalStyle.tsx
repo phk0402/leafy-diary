@@ -1,6 +1,14 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
+:root {
+	--primary-color: #474747;
+	--secondary-color: #8f8b84;
+	--point-color: #91a56e;
+	--hover-color: #606e52;
+	--bg-color: #f4f3e9;
+}
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -27,12 +35,15 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
+	background-color: var(--bg-color);
+
     * {
-      color: #333;
-      font-family: "Noto Sans KR", sans-serif;
-      font-size: 0.875rem;
+      color: var(--primary-color);
+      /* font-family: "Noto Sans KR", sans-serif; */
+	  font-family: Arial, Helvetica, sans-serif;
+      font-size: 1rem;
       font-weight: 400;
-      letter-spacing: -0.026rem;
+      letter-spacing: -0.025rem;
     }
 }
 ol, ul {
