@@ -20,7 +20,7 @@ export const MenuList = styled.ul`
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 4px;
+  padding: 0 4px;
   background: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(2px);
   border-radius: 20px;

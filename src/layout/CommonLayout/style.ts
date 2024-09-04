@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
-export const MainContainer = styled.main``;
-
-export const ContentsContainer = styled.div``;
+export const ContentsContainer = styled.div`
+  height: calc(100vh - 90px);
+  padding: 0 20px;
+`;

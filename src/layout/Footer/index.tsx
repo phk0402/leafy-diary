@@ -1,7 +1,5 @@
+import * as S from "./style";
+
 export default function Footer() {
-  return (
-    <footer>
-      <p>&copy; 2024 Leafy Diary</p>
-    </footer>
-  );
+  return <S.FooterContainer>&copy; 2024 Leafy Diary</S.FooterContainer>;
 }
