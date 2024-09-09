@@ -4,9 +4,8 @@ const GlobalStyle = createGlobalStyle`
 :root {
 	--primary-color: #474747;
 	--secondary-color: #8f8b84;
-	--point-color: #91a56e;
-	--hover-color: #606e52;
-	--bg-color: #f4f3e9;
+	--hover-color: #91a56e;
+	--point-color: #606e52;
 }
 
 html, body, div, span, applet, object, iframe,
@@ -28,6 +27,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+	box-sizing: border-box;
 }
 
 article, aside, details, figcaption, figure, 
@@ -35,11 +35,8 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
-	background-color: var(--bg-color);
-
     * {
       color: var(--primary-color);
-      /* font-family: "Noto Sans KR", sans-serif; */
 	  font-family: Arial, Helvetica, sans-serif;
       font-size: 1rem;
       font-weight: 400;

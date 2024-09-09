@@ -11,7 +11,7 @@ export default function CommonLayOut({
   return (
     <main>
       <Header />
-      <S.ContentsContainer className={`l__contents p__${page}`}>
+      <S.ContentsContainer className={`p__${page}`}>
         {children}
       </S.ContentsContainer>
       <Footer />

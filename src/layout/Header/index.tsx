@@ -27,7 +27,7 @@ export default function Header() {
   };
 
   return (
-    <S.HeaderContainer className="l__header">
+    <S.HeaderContainer>
       <S.LogoTitle onClick={() => routeTo("/")}>LEAFY DIARY</S.LogoTitle>
       <nav>
         <S.MenuList>
