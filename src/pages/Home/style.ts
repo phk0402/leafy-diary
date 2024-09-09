@@ -69,6 +69,7 @@ export const PlantList = styled.ul`
     &:not(:disabled):hover .img-wrap {
       transform: scale(1.1);
       transition: 0.3s;
+      cursor: pointer;
     }
 
     .c__card {

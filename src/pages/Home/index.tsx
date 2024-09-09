@@ -4,9 +4,30 @@ import Card from "~/components/common/Card";
 import PlantImg from "~/assets/img/plant.png";
 import Box from "~/components/common/Box";
 import useRoute from "~/hooks/useRoute";
+import { useQuery } from "@tanstack/react-query";
+import { API } from "~/api";
 
 export default function Home() {
   const routeTo = useRoute();
+
+  const getPlantsList = async () => {
+    const { data } = await API.get(`plants`);
+    return data;
+  };
+
+  const HomeQueryKeys = {
+    HomePlantsList: () => ["home-plants-list"],
+  };
+
+  function useGetPlantsList(enabled?: boolean) {
+    return useQuery({
+      queryKey: HomeQueryKeys.HomePlantsList(),
+      queryFn: () => getPlantsList(),
+      enabled: enabled ?? true,
+    });
+  }
+
+  const { data } = useGetPlantsList();
 
   const PLANT_LIST = [
     {
