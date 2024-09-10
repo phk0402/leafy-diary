@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
 export const ContentsContainer = styled.div`
-  height: calc(100vh - 40px);
+  height: 100vh;
   overflow-x: hidden;
 `;

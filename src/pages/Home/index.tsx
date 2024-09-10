@@ -10,8 +10,9 @@ import { API } from "~/api";
 export default function Home() {
   const routeTo = useRoute();
 
+  // 식물 목록을 Trefle API에서 가져오는 함수
   const getPlantsList = async () => {
-    const { data } = await API.get(`plants`);
+    const { data } = await API.get(`/plants`);
     return data;
   };
 
@@ -19,39 +20,32 @@ export default function Home() {
     HomePlantsList: () => ["home-plants-list"],
   };
 
-  function useGetPlantsList(enabled?: boolean) {
+  function useGetPlantsList() {
     return useQuery({
       queryKey: HomeQueryKeys.HomePlantsList(),
-      queryFn: () => getPlantsList(),
-      enabled: enabled ?? true,
+      queryFn: getPlantsList,
     });
   }
 
-  const { data } = useGetPlantsList();
+  // React Query로 데이터 가져오기
+  const { data, isLoading, isError } = useGetPlantsList();
 
-  const PLANT_LIST = [
-    {
-      img: PlantImg,
-      name: "야자수나무",
-    },
-    {
-      img: PlantImg,
-      name: "소나무",
-    },
-    {
-      img: PlantImg,
-      name: "떡잎나무",
-    },
-    {
-      img: PlantImg,
-      name: "도토리나무",
-    },
-    {
-      img: PlantImg,
-      name: "밤나무",
-    },
-  ];
+  // 로딩 상태 처리
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
+  // 에러 처리
+  if (isError) {
+    return <div>Error loading plant list</div>;
+  }
+
+  interface Plant {
+    image_url?: string;
+    common_name?: string;
+  }
+
+  // API에서 받아온 식물 데이터 (data)를 사용하여 렌더링
   return (
     <CommonLayOut page="main">
       <S.IntroSection>
@@ -75,13 +69,16 @@ export default function Home() {
       <S.PlantListSection>
         <S.PlantListTitle>PLANT LIST</S.PlantListTitle>
         <S.PlantList>
-          {PLANT_LIST.map((item, index) => (
+          {data.data?.map((plant: Plant, index: number) => (
             <li className="plant-item" key={index}>
               <Card>
                 <div className="img-wrap">
-                  <img src={item.img} alt={item.name} />
+                  <img
+                    src={plant.image_url || PlantImg}
+                    alt={plant.common_name || "Unknown Plant"}
+                  />
                 </div>
-                <h3>{item.name}</h3>
+                <h3>{plant.common_name || "Unknown Plant"}</h3>
               </Card>
             </li>
           ))}

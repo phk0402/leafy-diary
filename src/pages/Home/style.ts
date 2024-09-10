@@ -50,12 +50,15 @@ export const MainPhrase = styled.p`
   line-height: 1.4;
 `;
 
-export const PlantListSection = styled.section``;
+export const PlantListSection = styled.section`
+  padding: 30px 40px 40px;
+`;
 
 export const PlantListTitle = styled.h2`
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   font-size: 20px;
   font-weight: 500;
+  margin-bottom: 20px;
 `;
 
 export const PlantList = styled.ul`
@@ -66,25 +69,25 @@ export const PlantList = styled.ul`
   .plant-item {
     height: 300px;
 
-    &:not(:disabled):hover .img-wrap {
+    &:not(:disabled):hover .img-wrap img {
       transform: scale(1.1);
       transition: 0.3s;
-      cursor: pointer;
     }
 
     .c__card {
       overflow: hidden;
+      cursor: pointer;
     }
 
     .img-wrap {
       width: 100%;
-      height: 50%;
+      height: 70%;
       overflow: hidden;
 
       img {
         width: 100%;
         height: 100%;
-        object-fit: contain;
+        object-fit: cover;
       }
     }
   }

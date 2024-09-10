@@ -13,8 +13,8 @@ export default function CommonLayOut({
       <Header />
       <S.ContentsContainer className={`p__${page}`}>
         {children}
+        <Footer />
       </S.ContentsContainer>
-      <Footer />
     </main>
   );
 }

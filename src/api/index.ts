@@ -1,8 +1,9 @@
 import axios from "axios";
-import { API_BASE_URL } from "~/constants/env";
-import { BASE_HEADER } from "~/constants/config";
+import { API_KEY } from "~/constants/env";
 
 export const API = axios.create({
-  baseURL: API_BASE_URL,
-  headers: BASE_HEADER,
+  baseURL: "/api",
+  headers: {
+    Authorization: `Bearer ${API_KEY}`,
+  },
 });
